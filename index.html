@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Score Predictor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background-glow"></div>
+    <div class="container">
+      <header class="header">
+        <span class="badge">Sheryians AI School Project</span>
+        <h1>Mental Health Score Predictor</h1>
+        <p>
+          Fill in your daily academic & lifestyle metrics to evaluate your
+          score.
+        </p>
+      </header>
+
+      <main class="main-card">
+        <form id="predictionForm">
+          <div class="form-grid">
+            <!-- Personal Info -->
+            <div class="input-group">
+              <label for="age">Age</label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                min="10"
+                max="100"
+                placeholder="e.g. 21"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="country">Country</label>
+              <select id="country" name="country" required>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                <option value="UK">UK</option>
+                <option value="Germany">Germany</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Turkey">Turkey</option>
+                <option value="France">France</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="academic_level">Academic Level</label>
+              <select id="academic_level" name="academic_level" required>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Graduate">Graduate</option>
+                <option value="High School">High School</option>
+              </select>
+            </div>
+
+            <!-- Digital Habits -->
+            <div class="input-group">
+              <label for="most_used_platform">Most Used Platform</label>
+              <select
+                id="most_used_platform"
+                name="most_used_platform"
+                required
+              >
+                <option value="Instagram">Instagram</option>
+                <option value="YouTube">YouTube</option>
+                <option value="TikTok">TikTok</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Twitter">Twitter</option>
+                <option value="Snapchat">Snapchat</option>
+                <option value="LINE">LINE</option>
+                <option value="KakaoTalk">KakaoTalk</option>
+                <option value="VKontakte">VKontakte</option>
+                <option value="WeChat">WeChat</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="purpose_of_use">Primary Purpose of Use</label>
+              <select id="purpose_of_use" name="purpose_of_use" required>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Education">Education</option>
+                <option value="Networking">Networking</option>
+                <option value="News">News</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="avg_daily_usage_hours"
+                >Daily Screen Time (Hours)</label
+              >
+              <input
+                type="number"
+                step="0.5"
+                id="avg_daily_usage_hours"
+                name="avg_daily_usage_hours"
+                min="0"
+                max="14"
+                placeholder="0 - 14"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="daily_unlocks">Daily Phone Unlocks</label>
+              <input
+                type="number"
+                id="daily_unlocks"
+                name="daily_unlocks"
+                min="0"
+                placeholder="e.g. 80"
+                required
+              />
+            </div>
+
+            <!-- Lifestyle & Health -->
+            <div class="input-group">
+              <label for="study_hours">Daily Study Hours</label>
+              <input
+                type="number"
+                step="0.5"
+                id="study_hours"
+                name="study_hours"
+                min="0"
+                max="24"
+                placeholder="0 - 24"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="physical_activity_hours"
+                >Physical Activity (Hours)</label
+              >
+              <input
+                type="number"
+                step="0.5"
+                id="physical_activity_hours"
+                name="physical_activity_hours"
+                min="0"
+                max="24"
+                placeholder="0 - 24"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="sleep_hours_per_night">Sleep Per Night (Hours)</label>
+              <input
+                type="number"
+                step="0.5"
+                id="sleep_hours_per_night"
+                name="sleep_hours_per_night"
+                min="0"
+                max="24"
+                placeholder="0 - 24"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="stress_level">Self-Reported Stress Level</label>
+              <select id="stress_level" name="stress_level" required>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Very High">Very High</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="submit-btn">
+            <span>Calculate Score</span>
+            <div class="spinner" id="spinner"></div>
+          </button>
+        </form>
+
+        <div id="resultCard" class="result-card hidden">
+          <h3>Predicted Score</h3>
+          <div class="score-display" id="scoreDisplay">0.00</div>
+          <p id="scoreMessage">Loading score interpretation...</p>
+        </div>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

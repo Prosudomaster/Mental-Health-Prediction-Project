@@ -1,0 +1,11 @@
+[project]
+name = "mental-health-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.142.4",
+    "joblib>=1.6.0",
+    "uvicorn>=0.54.0",
+]
